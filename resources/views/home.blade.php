@@ -15,3 +15,15 @@
     </div>
 </div>
 @endsection
+
+<!-- Username Form input -->
+<div class="form-group">
+    {{ Form::label('username', 'Username:') }}
+    {{ Form::text('username', null, ['class' => 'form-control']) }}
+</div>
+
+<!-- Userpassword Form input -->
+<div class="form-group">
+    {{ Form::label('userpassword', 'Userpassword:') }}
+    {{ Form::password('userpassword', ['class' => 'form-control']) }}
+</div>
