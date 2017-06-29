@@ -12,7 +12,7 @@ class ThreadsController extends Controller
      */
     function __construct()
     {
-        $this->middleware('auth')->only('store');
+        $this->middleware('auth')->except(['index', 'show']);
     }
 
 
@@ -37,7 +37,7 @@ class ThreadsController extends Controller
      */
     public function create()
     {
-        //
+        return view('threads.create');
     }
 
     /**
@@ -50,13 +50,11 @@ class ThreadsController extends Controller
     {
         $thread = Thread::create([
             'user_id' => auth()->id(),
-            'title' => request('title'),
-            'body' => request('body')
+            'title' => $request->title,
+            'body' => $request->body
         ]);
 
         return redirect($thread->path());
-
-
     }
 
     /**
